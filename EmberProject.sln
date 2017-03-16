@@ -1,12 +1,24 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2015
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmberProject", "EmberProject.csproj", "{C2CB2758-69FB-BA72-F95E-CE64D003EBEA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmberProject.Editor", "EmberProject.Editor.csproj", "{DC58801B-F7D0-FF07-171C-43701C037900}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C2CB2758-69FB-BA72-F95E-CE64D003EBEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2CB2758-69FB-BA72-F95E-CE64D003EBEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2CB2758-69FB-BA72-F95E-CE64D003EBEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2CB2758-69FB-BA72-F95E-CE64D003EBEA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC58801B-F7D0-FF07-171C-43701C037900}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC58801B-F7D0-FF07-171C-43701C037900}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC58801B-F7D0-FF07-171C-43701C037900}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC58801B-F7D0-FF07-171C-43701C037900}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
