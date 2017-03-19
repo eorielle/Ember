@@ -11,34 +11,42 @@ public class Player : MonoBehaviour {
     private int DIRECTION_FRONT = 3;
     private int DIRECTION_BACK = 4;
 
+    private Rigidbody2D body;
+
+    private float speed = 0.1f;
+
 
     // Use this for initialization
     void Start () {
         animator = GetComponent<Animator>();
-		
-	}
+        body = GetComponent<Rigidbody2D>();
+
+        animator.SetFloat("inputX", 0);
+        animator.SetFloat("inputY", -1);
+        animator.SetBool("isWalking", false);
+    }
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetButton("Up"))
+
+       
+        // handle character animation
+        Vector2 moveVector = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+
+        if (moveVector != Vector2.zero)
         {
-            animator.SetInteger("DirectionState", DIRECTION_BACK);
-        }
-        else if (Input.GetButton("Down"))
-        {
-            animator.SetInteger("DirectionState", DIRECTION_FRONT);
-        }
-        else if (Input.GetButton("Left"))
-        {
-            animator.SetInteger("DirectionState", DIRECTION_LEFT);
-        }
-        else if (Input.GetButton("Right"))
-        {
-            animator.SetInteger("DirectionState", DIRECTION_RIGHT);
+            animator.SetBool("isWalking", true);
+            animator.SetFloat("inputX", Input.GetAxisRaw("Horizontal"));
+            animator.SetFloat("inputY", Input.GetAxisRaw("Vertical"));
+
+            
         } else
         {
-            animator.SetInteger("DirectionState", DIRECTION_IDLE);
+            animator.SetBool("isWalking", false);
         }
+
+        //Handle character movement
+        body.MovePosition(body.position + moveVector * Time.deltaTime);
 
     }
 }
