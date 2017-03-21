@@ -11,9 +11,12 @@ public class Player : MonoBehaviour {
     private int DIRECTION_FRONT = 3;
     private int DIRECTION_BACK = 4;
 
+
     private Rigidbody2D body;
 
     private float speed = 0.1f;
+
+    public Inventory inventory;
 
 
     // Use this for initialization
@@ -24,6 +27,12 @@ public class Player : MonoBehaviour {
         animator.SetFloat("inputX", 0);
         animator.SetFloat("inputY", -1);
         animator.SetBool("isWalking", false);
+
+        inventory = new Inventory();
+
+        // Inventory test
+        inventory.AddItem(new Item("testItem", "This is an item for test"));
+        inventory.PrintItems();
     }
 	
 	// Update is called once per frame
@@ -45,7 +54,7 @@ public class Player : MonoBehaviour {
             animator.SetBool("isWalking", false);
         }
 
-        //Handle character movement
+        // Handle character movement
         body.MovePosition(body.position + moveVector * Time.deltaTime);
 
     }
