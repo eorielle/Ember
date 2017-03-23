@@ -20,6 +20,8 @@ public class Player : MonoBehaviour {
 
     public int velocity;
 
+    private static bool playerExists;
+
 
     // Use this for initialization
     void Start () {
@@ -35,7 +37,17 @@ public class Player : MonoBehaviour {
         // Inventory test
         inventory.AddItem(new Item("testItem", "This is an item for test"));
         inventory.PrintItems();
-        DontDestroyOnLoad(transform.gameObject);
+
+        if(playerExists)
+        {
+            Destroy(transform.gameObject);
+        } else
+        {
+            playerExists = true;
+            DontDestroyOnLoad(transform.gameObject);
+        }
+
+       
     }
 	
 	// Update is called once per frame
