@@ -18,6 +18,8 @@ public class Player : MonoBehaviour {
 
     public Inventory inventory;
 
+    public int velocity;
+
 
     // Use this for initialization
     void Start () {
@@ -33,6 +35,7 @@ public class Player : MonoBehaviour {
         // Inventory test
         inventory.AddItem(new Item("testItem", "This is an item for test"));
         inventory.PrintItems();
+        DontDestroyOnLoad(transform.gameObject);
     }
 	
 	// Update is called once per frame
@@ -55,7 +58,7 @@ public class Player : MonoBehaviour {
         }
 
         // Handle character movement
-        body.MovePosition(body.position + moveVector * Time.deltaTime);
+        body.MovePosition(body.position + moveVector * Time.deltaTime * velocity);
 
     }
 }
