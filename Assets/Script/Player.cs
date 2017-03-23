@@ -19,6 +19,9 @@ public class Player : MonoBehaviour {
     public Inventory inventory;
 
     public int velocity;
+    public float health;
+    public float maxHealth;
+    public int level;
 
     private static bool playerExists;
 
@@ -73,4 +76,10 @@ public class Player : MonoBehaviour {
         body.MovePosition(body.position + moveVector * Time.deltaTime * velocity);
 
     }
+
+    public void ShowHP()
+    {
+        float rate = health / maxHealth;
+    }
+
 }
